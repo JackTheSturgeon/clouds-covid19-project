@@ -1,0 +1,27 @@
+<div>
+    <h2 style="background-color: #fae8e8A1;">
+        Corona Virus Cases byCountry
+    </h2>
+    <table class="table table-bordered table-stripped">
+        <thead>
+                <th scope="col" [appSort]="countryDataArray" data-order="desc" data-name="countryName" style="background-color:dimgrey; color:white">Country</th>
+                <th scope="col" [appSort]="countryDataArray" data-order="desc" data-name="newCases" style="background-color: rgb(252, 252, 136);">New Cases </th>
+                <th scope="col" [appSort]="countryDataArray" data-order="desc" data-name="totalCases" style="background-color: rgb(252, 252, 136);">Total Cases</th>
+                <th scope="col" [appSort]="countryDataArray" data-order="desc" data-name="newRecovered" style="background-color: rgb(140, 179, 230);">New Recoveries</th>
+                <th scope="col" [appSort]="countryDataArray" data-order="desc" data-name="totalRecovered" style="background-color: rgb(140, 179, 230);">Total Recoveries</th>
+                <th scope="col" [appSort]="countryDataArray" data-order="desc" data-name="newDeaths" style="background-color: #ff4545A1;">New Deaths</th>
+                <th scope="col" [appSort]="countryDataArray" data-order="desc" data-name="totalDeaths" style="background-color: #ff4545A1;">Total Deaths</th>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let country of countryDataArray">
+                <td style="background-color:dimgrey; color:white"><a routerLink="/country/{{country.countryName}}" style="color: white;"> {{ country.countryName }} </a></td>
+                <td style="background-color: rgb(252, 252, 136);">{{ country.newCases }}</td>
+                <td style="background-color: rgb(252, 252, 136);">{{ country.totalCases }}</td>
+                <td style="background-color: rgb(140, 179, 230);">{{ country.newRecovered }}</td>
+                <td style="background-color: rgb(140, 179, 230);">{{ country.totalRecovered }}</td>
+                <td style="background-color: #ff4545A1;">{{ country.newDeaths }}</td>
+                <td style="background-color: #ff4545A1;">{{ country.totalDeaths }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
