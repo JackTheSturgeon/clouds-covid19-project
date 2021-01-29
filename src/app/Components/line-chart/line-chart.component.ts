@@ -44,7 +44,13 @@ export class LineChartComponent implements OnInit {
   ngOnInit(): void {
 
     if (this.isHome){
-      this.apidbService.getLastDaysData("all").subscribe((data_values)=>{
+      let initialDate = new Date('04/13/2020');
+      let currentDate = new Date();
+      var difference = currentDate.getTime() - initialDate.getTime();
+      // We recover the days difference between the dates
+      var days = Math.round(difference / (1000 * 3600 * 24));
+
+      this.apidbService.getLastDaysData(days.toString()).subscribe((data_values)=>{
           this.lineChartLabels = Object.keys(data_values["cases"])
           let deaths_array : number[] = Object.values(data_values.deaths)
           let cases_array : number[] = Object.values(data_values.cases)
